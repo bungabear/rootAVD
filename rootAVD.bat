@@ -222,20 +222,11 @@ exit /B 0
 :TestADB
 	SetLocal EnableDelayedExpansion
 	set HOME=%LOCALAPPDATA%\
-	set ADB_DIR_W=Android\Sdk\platform-tools\
+	set ADB_DIR_W=D:\workspace\rootAVD
 	set ADB_DIR=""
 	set ADB_EX=""
-
-	echo [-] Test if ADB SHELL is working
-	if exist %HOME%%ADB_DIR_W% (
-        set ADB_DIR=%ADB_DIR_W%
-    ) else (
-    	echo [^^!] ADB not found, please install platform-tools and add it to your %%PATH%%
-        call :_Exit 2> nul
-    )
-
 	for /f "delims=" %%i in ('dir %HOME%%ADB_DIR%adb.exe /s /b /a-d') do (
-		set ADB_EX=%%i
+		set ADB_EX=D:\workspace\rootAVD\adb.exe
 	)
 
 	IF %ADB_EX% == "" (
